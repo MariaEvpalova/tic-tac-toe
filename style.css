@@ -4,9 +4,9 @@
     grid-gap: 10px;
     width: 300px;
     margin-bottom: 20px;
-}
-
-.cell {
+  }
+  
+  .cell {
     width: 100px;
     height: 100px;
     border: 1px solid black;
@@ -15,8 +15,9 @@
     align-items: center;
     font-size: 24px;
     cursor: pointer;
-}
+  }
   
-button {
+  button {
     font-size: 20px;
-}
+  }
+  
