@@ -1,23 +1,50 @@
-.board {
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    font-family: 'Press Start 2P', sans-serif;
+    box-sizing: border-box;
+}
+
+#game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    width: 300px;
+    width: fit-content;
     margin-bottom: 20px;
-  }
+}
   
-  .cell {
+.cell {
+    padding-top: 8px;
+    padding-left: 8px;
     width: 100px;
     height: 100px;
-    border: 1px solid black;
+    border: 4px dotted black;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 64px;
     cursor: pointer;
-  }
+}
   
-  button {
-    font-size: 20px;
-  }
-  
+button {
+    font-size: 24px;
+    padding: 8px 12px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: -64px;
+}
+
+#result-section {
+    font-size: 36px;
+    margin-top: 36px;
+    height: 38px;
+    margin-left: 24px;
+}

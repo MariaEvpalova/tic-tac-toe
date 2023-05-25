@@ -27,9 +27,25 @@ const Gameboard = (() => {
 // Module for display controller
 const DisplayController = (() => {
     const gameboardElement = document.getElementById('game-board');
+
+    const resultSection = document.getElementById('result-section');
+
+    function resetResult() {
+        resultSection.innerText = 'Let the game begin!';
+    }
+
+    function displayWinner(winner) {
+        resultSection.innerText = `Player ${winner.name} wins!`;
+    }
+
+    function displayTie() {
+        resultSection.innerText = "It's a tie!";
+    }
+
     const resetButton = document.getElementById('reset-btn');
 
     resetButton.addEventListener('click', resetGame);
+    resetButton.addEventListener('click', resetResult);
 
     function resetGame() {
         Gameboard.resetBoard();
@@ -58,11 +74,9 @@ const DisplayController = (() => {
             renderBoard();
 
             if (GameController.checkWin(currentPlayer)) {
-                alert(`Player ${currentPlayer.name} wins!`);
-                resetGame();
+                displayWinner(currentPlayer);
             } else if (GameController.checkTie()) {
-                alert("It's a tie!");
-                resetGame();
+                displayTie();
             } else {
                 GameController.switchPlayer();
             }
@@ -74,8 +88,8 @@ const DisplayController = (() => {
 
 // Module for game controller
 const GameController = (() => {
-    const player1 = Player('Player 1', 'X');
-    const player2 = Player('Player 2', 'O');
+    const player1 = Player('X', 'X');
+    const player2 = Player('O', 'O');
     let currentPlayer = player1;
 
     const getCurrentPlayer = () => currentPlayer;
